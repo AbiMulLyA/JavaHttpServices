@@ -1,4 +1,4 @@
-package repository.models;
+package repository.models.numberonemodels;
 
 import java.util.List;
 import com.google.gson.annotations.SerializedName;

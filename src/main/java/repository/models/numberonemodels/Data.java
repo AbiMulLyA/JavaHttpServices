@@ -1,4 +1,4 @@
-package repository.models;
+package repository.models.numberonemodels;
 
 import com.google.gson.annotations.SerializedName;
 

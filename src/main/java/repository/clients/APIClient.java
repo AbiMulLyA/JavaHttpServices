@@ -9,9 +9,7 @@ public class APIClient {
         var retrofit = new Retrofit.Builder()
                 .baseUrl(baseUrl)
                 .addConverterFactory(
-                        GsonConverterFactory.create(
-                                new GsonBuilder().setLenient().create()
-                        )
+                        GsonConverterFactory.create()
                 ).build();
         return retrofit.create(service);
     }
