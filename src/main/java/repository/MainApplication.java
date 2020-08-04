@@ -1,12 +1,14 @@
 package repository;
 
 import repository.clients.NumberOneClient;
+import repository.clients.NumberThreeClient;
 import repository.clients.NumberTwoClient;
 
 public class MainApplication {
     public static void main(String[] args){
-//        NumberOne();
-        NumberTwo();
+        NumberOne();
+//        NumberTwo();
+//        NumberThree();
     }
     public static void NumberOne(){
         NumberOneClient.instance();
@@ -20,6 +22,14 @@ public class MainApplication {
     }
     public static void NumberTwo(){
         NumberTwoClient.instance();
-        NumberTwoClient.getListOfTodos();
+//        NumberTwoClient.getListOfTodos();
+        NumberTwoClient.getDetailsTodo();
+        System.exit(0);
+    }
+    public static void NumberThree(){
+//        NumberThreeClient.instance();
+        NumberThreeClient.getPostsList();
+//        NumberThreeClient.getUsersList();
+        System.exit(0);
     }
 }

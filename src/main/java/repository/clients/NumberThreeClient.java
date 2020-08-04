@@ -2,29 +2,26 @@ package repository.clients;
 
 import com.google.gson.Gson;
 import repository.generates.PrettyPrintJson;
-import repository.services.NumberTwoService;
-
-import java.io.FileOutputStream;
+import repository.services.NumberThreeService;
 import java.io.IOException;
-import java.util.List;
 
-public class NumberTwoClient {
-    private static final String baseUrl = "https://online-course-todo.herokuapp.com/api/v1/";
-    private static NumberTwoClient numberTwoClient;
-    public static NumberTwoClient instance(){
-        if(numberTwoClient == null) numberTwoClient = new NumberTwoClient();
-        return numberTwoClient;
+public class NumberThreeClient {
+
+    private static final String baseUrl = "https://jsonplaceholder.typicode.com/";
+    private static NumberThreeClient numberThreeClient;
+    public static NumberThreeClient instance(){
+        if(numberThreeClient == null) numberThreeClient = new NumberThreeClient();
+        return numberThreeClient;
     }
-    public static Object getListOfTodos() {
+    public static Object getPostsList() {
         try{
-            var GetListUsers = APIClient.client(
-                    NumberTwoService.class,
+            var GetPostsList = APIClient.client(
+                    NumberThreeService.class,
                     baseUrl)
-                    .getListOfTodos()
+                    .getPostsList()
                     .execute().body();
-            String jsonResponse = new Gson().toJson(GetListUsers);
+            String jsonResponse = new Gson().toJson(GetPostsList);
             System.out.println(PrettyPrintJson.prettyPrint(jsonResponse));
-            System.out.println(jsonResponse);
 //            var output = new FileOutputStream("src/main/java/repository/items.json");
 //            output.write(jsonResponse.getBytes());
 //            output.close();
@@ -34,16 +31,16 @@ public class NumberTwoClient {
         }
         return null;
     }
-    public static Object getDetailsTodo() {
+
+    public static Object getUsersList() {
         try{
-            var GetDetailsTodo = APIClient.client(
-                    NumberTwoService.class,
+            var GetUsersList = APIClient.client(
+                    NumberThreeService.class,
                     baseUrl)
-                    .getDetailsTodo(19)
+                    .getUsersList()
                     .execute().body();
-            String jsonResponse = new Gson().toJson(GetDetailsTodo);
+            String jsonResponse = new Gson().toJson(GetUsersList);
             System.out.println(PrettyPrintJson.prettyPrint(jsonResponse));
-//            System.out.println(jsonResponse);
 //            var output = new FileOutputStream("src/main/java/repository/items.json");
 //            output.write(jsonResponse.getBytes());
 //            output.close();

@@ -12,7 +12,7 @@ public class NumberOneClient {
         if(numberOneClient == null) numberOneClient = new NumberOneClient();
         return numberOneClient;
     }
-    public static Object getListUsers() {
+    public static void getListUsers() {
         try{
             var GetListUsers = APIClient.client(
                     NumberOneService.class,
@@ -24,9 +24,8 @@ public class NumberOneClient {
         }catch (IOException e) {
             System.out.println(e.getMessage());
         }
-        return null;
     }
-    public static Object getUserId(){
+    public static void getUserId(){
         try{
             var GetUsersId = APIClient.client(
                     NumberOneService.class,
@@ -38,7 +37,6 @@ public class NumberOneClient {
         }catch (IOException e) {
             System.out.println(e.getMessage());
         }
-        return null;
     }
 
     public static Object postUser() {
@@ -71,7 +69,7 @@ public class NumberOneClient {
         return null;
     }
 
-    public static Object patch(){
+    public static Void patch(){
         try{
             var PatchUser = APIClient.client(
                     NumberOneService.class,
@@ -83,21 +81,20 @@ public class NumberOneClient {
         }catch (IOException e) {
             System.out.println(e.getMessage());
         }
-        return null;
     }
 
-    public static Object delete(){
+    public static void delete(){
         try{
+            var id = 2;
             var DeleteUser = APIClient.client(
                     NumberOneService.class,
                     baseUrl)
-                    .deleteUser(2)
+                    .deleteUser(id)
                     .execute().body();
-            String jsonResponse = new Gson().toJson(DeleteUser);
-            System.out.println(jsonResponse);
+//            String jsonResponse = new Gson().toJson(DeleteUser);
+            System.out.println("User dengan id " + id + "Berhasil di hapus");
         }catch (IOException e) {
             System.out.println(e.getMessage());
         }
-        return null;
     }
 }
